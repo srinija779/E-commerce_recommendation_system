@@ -12,7 +12,7 @@ trending_products = pd.read_csv("models/trending_products.csv")
 train_data = pd.read_csv("models/clean_data.csv")
 
 # database configuration
-app.secret_key = "alskdjfwoeieiurlskdjfslkdjf"
+app.secret_key = "sri4522@SRI"
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:@localhost/ecom"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -93,7 +93,7 @@ random_image_urls = [
 def index():
     # Create a list of random image URLs for each product
     random_product_image_urls = [random.choice(random_image_urls) for _ in range(len(trending_products))]
-    price = [40, 50, 60, 70, 100, 122, 106, 50, 30, 50]
+    price = [30, 40, 60, 50, 120, 125, 106, 60, 40, 50]
     return render_template('index.html',trending_products=trending_products.head(8),truncate = truncate,
                            random_product_image_urls=random_product_image_urls,
                            random_price = random.choice(price))
@@ -107,7 +107,7 @@ def main():
 def indexredirect():
     # Create a list of random image URLs for each product
     random_product_image_urls = [random.choice(random_image_urls) for _ in range(len(trending_products))]
-    price = [40, 50, 60, 70, 100, 122, 106, 50, 30, 50]
+    price = [30, 40, 60, 50, 120, 125, 106, 60, 40, 50]
     return render_template('index.html', trending_products=trending_products.head(8), truncate=truncate,
                            random_product_image_urls=random_product_image_urls,
                            random_price=random.choice(price))
@@ -125,7 +125,7 @@ def signup():
 
         # Create a list of random image URLs for each product
         random_product_image_urls = [random.choice(random_image_urls) for _ in range(len(trending_products))]
-        price = [40, 50, 60, 70, 100, 122, 106, 50, 30, 50]
+        price = [30, 40, 60, 50, 120, 125, 106, 60, 40, 50]
         return render_template('index.html', trending_products=trending_products.head(8), truncate=truncate,
                                random_product_image_urls=random_product_image_urls, random_price=random.choice(price),
                                signup_message='User signed up successfully!'
@@ -143,7 +143,7 @@ def signin():
 
         # Create a list of random image URLs for each product
         random_product_image_urls = [random.choice(random_image_urls) for _ in range(len(trending_products))]
-        price = [40, 50, 60, 70, 100, 122, 106, 50, 30, 50]
+        price = [30, 40, 60, 50, 120, 125, 106, 60, 40, 50]
         return render_template('index.html', trending_products=trending_products.head(8), truncate=truncate,
                                random_product_image_urls=random_product_image_urls, random_price=random.choice(price),
                                signup_message='User signed in successfully!'
@@ -164,7 +164,7 @@ def recommendations():
             print(content_based_rec)
             print(random_product_image_urls)
 
-            price = [40, 50, 60, 70, 100, 122, 106, 50, 30, 50]
+            price = [30, 40, 60, 50, 120, 125, 106, 60, 40, 50]
             return render_template('main.html', content_based_rec=content_based_rec, truncate=truncate,
                                    random_product_image_urls=random_product_image_urls,
                                    random_price=random.choice(price))
